@@ -84,7 +84,7 @@ A comprehensive authentication system demonstrating modern security practices us
 
 bash
 
-git clone https://github.com/Sagarkrsahu2005/Auth-by-JWT_Tokken
+git clone https://github.com/Sagarkrsahu2005/-Auth-by-JWT-.git
 
 cd auth-by-jwt
 
@@ -327,9 +327,9 @@ kill -9 <PID>
 ## 👨‍💻 Author
 
 ### Sagar Sahu
-- Twitter: [@Async_sagar](https://www.linkedin.com/in/sagar-sahu-3ab1a924b/)
+- Twitter: [@Async_sagar](https://twitter.com/Async_sagar)
 - GitHub: [@sagarsahu27](https://github.com/Sagarkrsahu2005)
-- LinkedIn: [Sagar Sahu](https://linkedin.com/in/sagarsahu27)
+- LinkedIn: [Sagar Sahu](https://www.linkedin.com/in/sagar-sahu-3ab1a924b/)
 
 <div align="center">
   <p>
