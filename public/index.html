@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ModernAuth - Sign In or Sign Up</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.7/axios.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="tabs">
+            <div class="tab active" id="signin-tab">Sign In</div>
+            <div class="tab" id="signup-tab">Sign Up</div>
+        </div>
+        <div class="form-container">
+            <form id="signin-form">
+                <h2>Welcome Back</h2>
+                <div class="input-group">
+                    <label for="signin-email">Email</label>
+                    <input type="email" id="signin-email" required>
+                </div>
+                <div class="input-group">
+                    <label for="signin-password">Password</label>
+                    <input type="password" id="signin-password" required>
+                </div>
+                <button type="submit">Sign In</button>
+                <div class="forgot-password">
+                    <a href="#">Forgot your password?</a>
+                </div>
+            </form>
+            <form id="signup-form" style="display: none;">
+                <h2>Create an Account</h2>
+                <div class="input-group">
+                    <label for="signup-name">Full Name</label>
+                    <input type="text" id="signup-name" required>
+                </div>
+                <div class="input-group">
+                    <label for="signup-email">Email</label>
+                    <input type="email" id="signup-email" required>
+                </div>
+                <div class="input-group">
+                    <label for="signup-password">Password</label>
+                    <input type="password" id="signup-password" required>
+                </div>
+                <button type="submit">Sign Up</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        const signinTab = document.getElementById('signin-tab');
+        const signupTab = document.getElementById('signup-tab');
+        const signinForm = document.getElementById('signin-form');
+        const signupForm = document.getElementById('signup-form');
+
+        signinTab.addEventListener('click', () => {
+            signinTab.classList.add('active');
+            signupTab.classList.remove('active');
+            signinForm.style.display = 'block';
+            signupForm.style.display = 'none';
+        });
+
+        signupTab.addEventListener('click', () => {
+            signupTab.classList.add('active');
+            signinTab.classList.remove('active');
+            signupForm.style.display = 'block';
+            signinForm.style.display = 'none';
+        });
+
+        async function signIn(event) {
+            event.preventDefault();
+            try {
+                const response = await axios.post('http://localhost:3000/signin', {
+                    username: document.getElementById('signin-email').value,
+                    password: document.getElementById('signin-password').value
+                });
+                console.log('Signin Response:', response.data);
+                if (response.data.token) {
+                    localStorage.setItem('token', response.data.token);
+                    alert("Sign in successful!");
+                } else {
+                    alert(response.data.message || "Sign in failed");
+                }
+            } catch (error) {
+                console.error('Signin Error:', error);
+                alert("Sign in failed: " + (error.response?.data?.message || error.message));
+            }
+        }
+
+        async function signUp(event) {
+            event.preventDefault();
+            try {
+                const response = await axios.post('http://localhost:3000/signup', {
+                    username: document.getElementById('signup-email').value,
+                    password: document.getElementById('signup-password').value
+                });
+                console.log('Signup Response:', response.data);
+                alert("Sign up successful!");
+                signinTab.click();
+            } catch (error) {
+                console.error('Signup Error:', error);
+                alert("Sign up failed: " + (error.response?.data?.message || error.message));
+            }
+        }
+
+        document.getElementById('signin-form').addEventListener('submit', signIn);
+        document.getElementById('signup-form').addEventListener('submit', signUp);
+
+        async function getMe() {
+            try {
+                const token = localStorage.getItem('token');
+                if (!token) {
+                    console.log('No token found');
+                    return;
+                }
+                const response = await axios.get('http://localhost:3000/me', {
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    }
+                });
+                console.log('User info:', response.data);
+            } catch (error) {
+                console.error('Error getting user info:', error);
+            }
+        }
+    </script>
+</body>
+
+</html>
