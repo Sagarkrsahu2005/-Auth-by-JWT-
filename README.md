@@ -84,7 +84,7 @@ A comprehensive authentication system demonstrating modern security practices us
 
 bash
 
-git clone https://github.com/yourusername/auth-by-jwt.git
+git clone https://github.com/Sagarkrsahu2005/Auth-by-JWT_Tokken
 
 cd auth-by-jwt
 
