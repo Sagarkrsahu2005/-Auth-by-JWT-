@@ -327,8 +327,8 @@ kill -9 <PID>
 ## 👨‍💻 Author
 
 ### Sagar Sahu
-- Twitter: [@Async_sagar](https://twitter.com/Async_sagar)
-- GitHub: [@sagarsahu27](https://github.com/sagarsahu27)
+- Twitter: [@Async_sagar](https://www.linkedin.com/in/sagar-sahu-3ab1a924b/)
+- GitHub: [@sagarsahu27](https://github.com/Sagarkrsahu2005)
 - LinkedIn: [Sagar Sahu](https://linkedin.com/in/sagarsahu27)
 
 <div align="center">
