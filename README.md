@@ -328,7 +328,7 @@ kill -9 <PID>
 
 ### Sagar Sahu
 - Twitter: [@Async_sagar](https://twitter.com/Async_sagar)
-- GitHub: [@sagarsahu27](https://github.com/Sagarkrsahu2005)
+- GitHub: [@sagarkrsahu2005](https://github.com/Sagarkrsahu2005)
 - LinkedIn: [Sagar Sahu](https://www.linkedin.com/in/sagar-sahu-3ab1a924b/)
 
 <div align="center">
